@@ -1,3 +1,10 @@
+// Runs tiny stack ISA v1 programs from the input directory and writes
+// stdout.bin and exit.txt to the output directory for each instance.
+// Limits: 256 data stack values, 64 call stack entries, 256 memory words,
+// 1,000,000 steps, and 65,536 output bytes.
+// Traps: 2 underflow, 3 overflow, 4 divide-by-zero, 5 opcode, 6 address,
+// 7 call-overflow, 8 return-underflow, 9 bounds, 10 timeout, 11 output-limit.
+
 function run(program, input) {
   const stack = new Int32Array(256);
   const returns = new Uint16Array(64);
